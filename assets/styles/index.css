@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: calc(1.6em + 0.5vw);
+  font-display: swap;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  color: white;
+  background-color: #fff;
+}
+@media (min-width: 57.5em) {
+  body {
+    font-size: calc(1.1em + 0.85vw);
+  }
+}
+@media (min-width: 89.5em) {
+  body {
+    font-size: 2.32em;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 2em 0 0.25em 0;
+  padding: 0;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  margin: 0.5em 0;
+  font-size: 250%;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 160%;
+}
+
+h3 {
+  font-size: 120%;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  line-height: 1.25;
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 1em 0;
+  padding: 0;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+
+ul,
+ol {
+  list-style-position: outside;
+}
+
+li {
+  margin: 0 0 0.5em 0;
+}
+
+ul li ul,
+ul li ol,
+ol li ol,
+ol li ul {
+  margin: 0.5em 0 1em 1em;
+}
+
+small {
+  font-size: 75%;
+  line-height: 1.5;
+}
+
+.heading {
+  margin: 0 0 0.25em 0;
+  font-size: 250%;
+  line-height: 1.05;
+}
+
+@media (min-width: 57.5em) {
+  .heading--x-large {
+    font-size: 330%;
+  }
+}
+
+.heading--xx-large {
+  font-size: 330%;
+}
+@media (min-width: 57.5em) {
+  .heading--xx-large {
+    margin: 0 0 0.2em 0;
+    font-size: 390%;
+  }
+}
+
+.heading--xxx-large {
+  font-size: 330%;
+}
+@media (min-width: 57.5em) {
+  .heading--xxx-large {
+    margin: 0 0 0.1em 0;
+    font-size: 515%;
+  }
+}
+
+.heading--tight {
+  line-height: 0.9;
+}
+
+.subheading {
+  margin: 2em 0 0.25em 0;
+  font-size: 160%;
+  line-height: 1.125;
+}
+
+.xx-small {
+  font-size: 65%;
+}
+
+.x-small {
+  font-size: 75%;
+}
+
+.small {
+  font-size: 85%;
+}
+
+.medium {
+  font-size: 100%;
+}
+
+.large {
+  font-size: 120%;
+}
+
+.x-large {
+  font-size: 160%;
+}
+
+.font-light{
+    font-weight: 300;
+}
