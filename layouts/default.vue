@@ -8,7 +8,7 @@
     <footer class="footer">
       <div class="columns">
         <div class="column is-two-thirds">
-          Donate
+          Buy me a coffee
         </div>
         <div class="column">
           <a href="https://github.com/Matthew-Troost/gitcreep" target="_blank">

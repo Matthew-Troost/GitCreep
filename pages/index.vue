@@ -6,7 +6,13 @@
       <p class="font-light">
         A quick and detailed view of a GitHub user's profile
       </p>
-      <b-input class="_username-input" placeholder="username"></b-input>
+      <b-input
+        ref="username"
+        v-model="username"
+        class="_username-input"
+        placeholder="username"
+        @keyup.enter.native="fetchUser"
+      ></b-input>
     </div>
   </div>
 </template>
@@ -15,7 +21,31 @@ import logo from '@/assets/images/logo.svg'
 export default {
   data() {
     return {
+      username: '',
       logo
+    }
+  },
+  methods: {
+    loading() {
+      this.$buefy.loading.open({
+        container: this.$refs.username.$el
+      })
+    },
+    fetchUser() {
+      this.loading()
+      this.$githubAPI
+        .$get(`/users/${this.username}`)
+        .then((user) => {
+          // save to vuex
+          console.log(user)
+        })
+        .catch((error) => {
+          if (error.response.status === 404) {
+            // display not found
+          } else {
+            // display there was an issue
+          }
+        })
     }
   }
 }
@@ -62,5 +92,8 @@ export default {
   color: white;
   text-align: center;
   border-color: #6b6b6b;
+}
+._username-input .loading-overlay .loading-background {
+  border-radius: 10px;
 }
 </style>
