@@ -159,3 +159,27 @@ small {
 .font-light{
     font-weight: 300;
 }
+
+.input:focus{
+    border-color: #b5b5b5;
+    box-shadow: none;
+}
+
+input::placeholder{
+    color: grey !important;
+}
+
+hr{
+    height: 1px;
+}
+
+a {
+    color: inherit;
+}
+a:hover{
+    color: white;
+}
+
+.footer {
+    padding: 3rem 1.5rem 3rem;
+}
