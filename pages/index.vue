@@ -11,40 +11,51 @@
         v-model="username"
         class="_username-input"
         placeholder="username"
-        @keyup.enter.native="fetchUser"
+        @keyup.enter.native="verifyUser"
       ></b-input>
+      <small class="_error-message"
+        ><b>{{ errormessage }}</b></small
+      >
     </div>
   </div>
 </template>
 <script>
+import github from '@/mixins/github'
 import logo from '@/assets/images/logo.svg'
+
 export default {
+  mixins: [github],
   data() {
     return {
       username: '',
+      errormessage: '',
+      loadingComponent: null,
       logo
+    }
+  },
+  watch: {
+    username() {
+      if (this.errormessage) this.errormessage = ''
     }
   },
   methods: {
     loading() {
-      this.$buefy.loading.open({
+      this.loadingComponent = this.$buefy.loading.open({
         container: this.$refs.username.$el
       })
     },
-    fetchUser() {
+    verifyUser() {
       this.loading()
-      this.$githubAPI
-        .$get(`/users/${this.username}`)
-        .then((user) => {
-          // save to vuex
-          console.log(user)
-        })
+      this.fetchUser(this.username)
+        .then(() => this.$router.push(`/${this.username.toLowerCase()}`))
         .catch((error) => {
-          if (error.response.status === 404) {
-            // display not found
-          } else {
-            // display there was an issue
-          }
+          if (error.response.status === 404)
+            this.errormessage = 'User does not exist'
+          else
+            this.errormessage =
+              'A creepy error occured - please try again later'
+
+          this.loadingComponent.close()
         })
     }
   }
@@ -76,11 +87,14 @@ export default {
 ._username-input {
   border-radius: 10px;
 }
+._error-message {
+  color: #cc4e4e;
+}
 </style>
 <style>
 ._username-input input {
   font-size: 3rem;
-  padding: 15px 45px 15px 30px;
+  padding: 15px 30px 15px 30px;
   font-family: 'Source Code Pro', 'SFMono-Regular', Consolas, 'Liberation Mono',
     Menlo, Courier, monospace;
   font-weight: 300;
