@@ -9,7 +9,7 @@
       <b-input
         ref="username"
         v-model="username"
-        class="_username-input"
+        class="username-input"
         placeholder="username"
         @keyup.enter.native="verifyUser"
       ></b-input>
@@ -84,7 +84,7 @@ export default {
 ._purple {
   color: #886ada;
 }
-._username-input {
+.username-input {
   border-radius: 10px;
 }
 ._error-message {
@@ -92,22 +92,7 @@ export default {
 }
 </style>
 <style>
-._username-input input {
-  font-size: 3rem;
-  padding: 15px 30px 15px 30px;
-  font-family: 'Source Code Pro', 'SFMono-Regular', Consolas, 'Liberation Mono',
-    Menlo, Courier, monospace;
-  font-weight: 300;
-  width: 100%;
-  box-sizing: border-box;
-  letter-spacing: -0.7px;
-  border-radius: 10px;
-  background: transparent;
-  color: white;
-  text-align: center;
-  border-color: #6b6b6b;
-}
-._username-input .loading-overlay .loading-background {
+.username-input .loading-overlay .loading-background {
   border-radius: 10px;
 }
 </style>

@@ -1,0 +1,20 @@
+query getUser($username: String!){
+  user(login: $username) {
+    bio
+  }
+}
+
+query getRepositories($username: String!, $pageCount: Int, $after: String) {
+  user(login: $username) {
+    repositories(first: $pageCount, after: $after, orderBy: {field: CREATED_AT, direction: DESC}) {
+      totalCount
+      nodes {
+        createdAt
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+}
